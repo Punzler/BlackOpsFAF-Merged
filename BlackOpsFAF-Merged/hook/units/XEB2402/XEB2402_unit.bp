@@ -1,0 +1,11 @@
+-- hook/units/XEB2402/XEB2402_unit.bp
+-- BuildableCategory changed from "SATELLITE" to "BUILTBYNOVAX" so the Novax Center
+-- only builds the Novax satellite (XEA0002) and not the BlackOps Artemis (BAA0401),
+-- which also carries the SATELLITE category.
+
+UnitBlueprint {
+    Merge = true,
+    Economy = {
+        BuildableCategory = { "BUILTBYNOVAX" },
+    },
+}

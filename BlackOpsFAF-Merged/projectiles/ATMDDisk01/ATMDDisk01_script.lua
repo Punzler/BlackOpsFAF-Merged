@@ -1,0 +1,6 @@
+﻿-- Seraphim Anti Tactical
+local DiskTMD01 = import('/mods/BlackOpsFAF-Merged/lua/BlackOpsProjectiles.lua').DiskTMD01
+
+---@class DiskTMD01 : DiskTMD01
+DiskTMD01 = Class(DiskTMD01) {}
+TypeClass = DiskTMD01

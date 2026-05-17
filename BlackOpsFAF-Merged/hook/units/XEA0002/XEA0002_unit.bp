@@ -1,0 +1,39 @@
+-- hook/units/XEA0002/XEA0002_unit.bp
+-- Removes UNTARGETABLE from the Novax Defense Satellite so it can be targeted
+-- by the BlackOps SMD anti-satellite weapon.
+-- Health raised from 100->7000 so ~14 SMD shots (~28s) are needed to kill one satellite.
+-- BUILTBYNOVAX category added so XEB2402 can exclusively target this unit
+-- without accidentally matching the BlackOps Artemis satellite (BAA0401).
+
+UnitBlueprint {
+    Merge = true,
+    BlueprintId = "xea0002",
+
+    Categories = {
+        "AIR",
+        "BUILTBYNOVAX",
+        "EXPERIMENTAL",
+        "HIGHALTAIR",
+        "MOBILE",
+        "OMNI",
+        "OVERLAYOMNI",
+        "OVERLAYRADAR",
+        "PRODUCTFA",
+        "RECLAIMABLE",
+        "SATELLITE",
+        "SELECTABLE",
+        "SNIPEMODE",
+        "UEF",
+        -- "UNTARGETABLE" intentionally removed so BlackOps SMD can target this unit.
+        "VISIBLETORECON",
+    },
+
+    Defense = {
+        ArmorType = "Normal",
+        Health    = 7000,
+        MaxHealth = 7000,
+    },
+
+    SizeY            = 8,
+    CollisionOffsetY = -3.5,
+}
