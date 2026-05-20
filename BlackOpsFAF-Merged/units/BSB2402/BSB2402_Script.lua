@@ -64,7 +64,7 @@ BSB2402 = Class(SLandFactoryUnit) {
 
         -- Set resource drain to amounts derived from unit blueprints
         self:SetConsumptionPerSecondMass(massDrain / 100)
-        self:SetConsumptionPerSecondEnergy(energyDrain * 3)
+        self:SetConsumptionPerSecondEnergy(energyDrain / 100)
     end,
 
     OnStopBuild = function(self, built)

@@ -1,4 +1,10 @@
 ---
+## Adjustments by Punzler (20.Mai.2026)
+
+**BSB2402 (Seraphim Quantum Rift Archway):**
+- BSB2402_Script.lua: changed energy consumption per second from `energyDrain * 3` to `energyDrain / 100` — energy drain now scales proportionally like mass drain instead of being a flat 3x multiplier of the built unit's total energy cost.
+
+---
 ## Adjustments by Punzler (13.Mai.2026)
 
 **BRL0401 (Basilisk) bugfixes:**
