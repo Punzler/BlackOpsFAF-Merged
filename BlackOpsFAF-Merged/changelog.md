@@ -1,6 +1,12 @@
 ---
 ## Adjustments by Punzler (20.Mai.2026)
 
+**Disable Total Mayhem T1 air units:**
+- Blueprints.lua ModBlueprints: strips all BUILTBY* categories from 9 Total Mayhem units (BRNBT1AIRST, BRMBT1AIRST, BROBT1AIRST, BRMAT1INTC, BRMAT1ADVFIG, BROAT1INTC, BROAT1FIG, BRNAT1ADVFIG, BRNAT1INTC) so they still exist in the engine but cannot be built by any factory, engineer, or gate. Add or remove unit IDs in the `disabledUnits` table to adjust.
+
+---
+## Adjustments by Punzler (20.Mai.2026)
+
 **BSB2402 (Seraphim Quantum Rift Archway):**
 - BSB2402_Script.lua: changed energy consumption per second from `energyDrain * 3` to `energyDrain / 100` — energy drain now scales proportionally like mass drain instead of being a flat 3x multiplier of the built unit's total energy cost.
 

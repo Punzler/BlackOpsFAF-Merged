@@ -205,6 +205,54 @@ do
         end
 
         -- =========================================================
+        -- DISABLE SPECIFIC UNITS FROM OTHER MODS
+        -- Add unit IDs (lowercase) to this table to prevent them
+        -- from being built. Build categories are stripped so the
+        -- units still exist but cannot be constructed.
+        -- =========================================================
+        local disabledUnits = {
+            'brnbt1airst',
+            'brmbt1airst',
+            'brobt1airst',
+            'brmat1intc',
+            'brmat1advfig',
+            'broat1intc',
+            'broat1fig',
+            'brnat1advfig',
+            'brnat1intc',
+        }
+        local disabledSet = {}
+        for _, uid in disabledUnits do
+            disabledSet[uid] = true
+        end
+
+        local buildCategoriesToRemove = {
+            'BUILTBYTIER1FACTORY', 'BUILTBYTIER2FACTORY', 'BUILTBYTIER3FACTORY',
+            'BUILTBYCOMMANDER', 'BUILTBYTIER2COMMANDER', 'BUILTBYTIER3COMMANDER',
+            'BUILTBYTIER2ENGINEER', 'BUILTBYTIER3ENGINEER',
+            'BUILTBYQUANTUMGATE', 'BUILTBYEXPERIMENTALSUB',
+        }
+
+        for uid, bp in all_blueprints.Unit do
+            if disabledSet[uid] and bp.Categories then
+                local newCats = {}
+                for _, cat in bp.Categories do
+                    local dominated = false
+                    for _, rem in buildCategoriesToRemove do
+                        if cat == rem then
+                            dominated = true
+                            break
+                        end
+                    end
+                    if not dominated then
+                        table.insert(newCats, cat)
+                    end
+                end
+                bp.Categories = newCats
+            end
+        end
+
+        -- =========================================================
         -- CRASH DAMAGE NORMALISATION
         -- FAF's AirUnit crash system reads DeathImpact.Damage from blueprint.
         -- Auto-formula (mass/4.5) produced excessive values for both units.
