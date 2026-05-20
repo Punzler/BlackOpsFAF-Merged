@@ -1,6 +1,14 @@
 ---
 ## Adjustments by Punzler (20.Mai.2026)
 
+**EES0301 (Seawolf Advanced Tactical Submarine):**
+- EES0301_unit.bp: set RULEUCC_Tactical to true so the tactical missile launch button is always visible.
+- EES0301_script.lua: removed dynamic RULEUCC_Tactical toggling from OnStopBeingBuilt and OnLayerChange — button no longer hides when submerged.
+- UEFTacNuke01_proj.bp: increased MaxSpeed from 12 to 50.
+
+---
+## Adjustments by Punzler (20.Mai.2026)
+
 **Disable Total Mayhem T1 air units:**
 - Blueprints.lua ModBlueprints: strips all BUILTBY* categories from 9 Total Mayhem units (BRNBT1AIRST, BRMBT1AIRST, BROBT1AIRST, BRMAT1INTC, BRMAT1ADVFIG, BROAT1INTC, BROAT1FIG, BRNAT1ADVFIG, BRNAT1INTC) so they still exist in the engine but cannot be built by any factory, engineer, or gate. Add or remove unit IDs in the `disabledUnits` table to adjust.
 
